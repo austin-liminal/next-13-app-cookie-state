@@ -7,7 +7,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/1-in-memory",
+        destination: "/1a-in-memory",
         permanent: false,
       },
     ];
