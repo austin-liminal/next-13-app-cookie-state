@@ -17,7 +17,6 @@ export default function RootLayout({
       <body>
         <main className="main">
           <PrimaryNav />
-
           {children}
         </main>
       </body>
