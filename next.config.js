@@ -7,8 +7,16 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/client-in-memory",
+        destination: "/1-in-memory",
         permanent: false,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [{ key: "Cache-Control", value: "private, max-age=60" }],
       },
     ];
   },

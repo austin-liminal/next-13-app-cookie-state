@@ -6,13 +6,14 @@ import {
   ReactNode,
   FC,
 } from "react";
+import { Theme } from "../constants";
 
-export type Theme = "synthwave" | "rugrats";
-
-const ThemeSelectionContext = createContext<{
+export interface ThemeSelectionContextData {
   currentTheme: Theme;
   updateTheme(value: Theme): void;
-}>({
+}
+
+const ThemeSelectionContext = createContext<ThemeSelectionContextData>({
   currentTheme: "" as Theme,
   updateTheme() {},
 });

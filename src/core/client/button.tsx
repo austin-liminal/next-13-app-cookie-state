@@ -1,7 +1,8 @@
 "use client";
 
-import { Theme, ThemeSelectionProvider, useTheme } from "@/core/useTheme";
 import { FC, ReactNode, useCallback } from "react";
+import { ThemeSelectionProvider, useTheme } from "@/core/client/useTheme";
+import { Theme } from "../constants";
 
 interface ThemePickerButtonProps {
   value: Theme;
@@ -26,16 +27,16 @@ export const ThemePickerButton: FC<ThemePickerButtonProps> = ({
 };
 
 interface ThemePickerButtonListProps {
-  initialValue: Theme;
+  initialValue: Theme | (() => Theme);
   children: ReactNode;
 }
 
-export const ThemePickerButtonList: FC<ThemePickerButtonListProps> = ({
+export const ClientThemePickerButtonList: FC<ThemePickerButtonListProps> = ({
   initialValue,
   children,
 }) => {
   return (
-    <ThemeSelectionProvider initialTheme={"synthwave"}>
+    <ThemeSelectionProvider initialTheme={initialValue}>
       <ul className="btn-list">{children}</ul>
     </ThemeSelectionProvider>
   );
